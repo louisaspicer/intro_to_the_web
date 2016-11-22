@@ -18,18 +18,20 @@ get '/drink' do
   "Whiskey"
 end
 
-get '/random-cat' do
+
+
+get '/cat-form' do
+  erb :cat_form
+end
+
+post '/random-cat' do
+  p params
   @name = ["Amigo", "Oscar", "Viking"].sample
   erb(:index)
 end
 
-get '/named-cat' do
+post '/named-cat' do
   p params
   @name = params[:name]
-  @surname = params[:surname]
   erb(:index)
-end
-
-get '/cat' do
-  "Hello " + params[:name] + " " + params[:surname]
 end
